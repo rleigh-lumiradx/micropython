@@ -74,19 +74,13 @@ set(MICROPY_SOURCE_QSTR
     ${MICROPY_SOURCE_PORT}
 )
 
-zephyr_get_include_directories_for_lang(C includes)
-zephyr_get_system_include_directories_for_lang(C system_includes)
-zephyr_get_compile_definitions_for_lang(C definitions)
-zephyr_get_compile_options_for_lang(C options)
-
-set(MICROPY_CPP_FLAGS_EXTRA ${includes} ${system_includes} ${definitions} ${options})
-
 zephyr_library_named(${MICROPY_TARGET})
 
 zephyr_library_include_directories(
     ${MICROPY_DIR}
     ${MICROPY_PORT_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 zephyr_library_compile_options(
